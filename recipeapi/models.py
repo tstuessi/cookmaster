@@ -44,7 +44,7 @@ class Ingredient(models.Model):
             val = str(self.numerator % self.denom)
         else:
             val = "{}/{}".format(self.numerator, self.denom)
-        return "{} {} of {}".format(self.val, self.unit, self.name)
+        return "{} {} of {}".format(val, self.unit, self.name)
 
 class Step(models.Model):
     number = models.IntegerField()
