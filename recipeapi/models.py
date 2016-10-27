@@ -41,7 +41,7 @@ class Ingredient(models.Model):
     def __str__(self):
         val = ""
         if self.numerator % self.denom == 0:
-            val = str(self.numerator / self.denom)
+            val = str(self.numerator // self.denom)
         else:
             val = "{}/{}".format(self.numerator, self.denom)
         return "{} {} of {}".format(val, self.unit, self.name)
