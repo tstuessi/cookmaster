@@ -51,6 +51,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['.amazon.com']
+
 ROOT_URLCONF = 'cookmaster.urls'
 
 TEMPLATES = [

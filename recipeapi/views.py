@@ -3,7 +3,7 @@ from .models import Recipe, Ingredient, Step
 
 import re
 
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 
@@ -11,7 +11,7 @@ from django.http import HttpResponse
 #    recipe_name = re.sub('\-+', ' ', recipe)
 #    recipe_dict = dict()
 #    return HttpResponse(recipe_name)
-    
+
 def index(request):
     print("this was called!")
-    return HttpResponse("Okay")
+    return JsonResponse({"info":"Okay"})
