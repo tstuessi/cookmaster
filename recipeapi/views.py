@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Recipe, Ingredient, Step
 
-from django.views.decorators import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt
 
 import re
 
