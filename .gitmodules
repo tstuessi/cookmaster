@@ -1,0 +1,3 @@
+[submodule "ingredient_parser"]
+	path = ingredient_parser
+	url = git@bitbucket.org:tstuessi/ingredient-parser.git

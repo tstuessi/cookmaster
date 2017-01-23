@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>New Recipe</title>
+    </head>
+    <body>
+        {% if saved %}
+        <h2> You saved a recipe! </h2>
+        {% endif %}
+        <form method="POST">
+            {% csrf_token %}
+            Recipe Name:<br>
+            <input type="text" name="recipename"><br>
+            Cooking Time:<br>
+            <input type="text" name="cookingtime"><br>
+            Fields:<br>
+            <input type="text" name="recipeyield"><br>
+            Ingredients:<br>
+            <textarea name="ingredients" rows="10"></textarea><br>
+            Steps:<br>
+            <textarea name="steps" rows="10"></textarea><br>
+            <input type="submit" value="Submit"><br>
+        </form>
+    </body>
+</html>
+

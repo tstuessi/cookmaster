@@ -24,6 +24,8 @@ from django.db import models
 #}
 class Recipe(models.Model):
     name = models.CharField(max_length=200)
+    recipe_yield = models.CharField(max_length=200)
+    cooking_time = models.CharField(max_length=200)
     date_created = models.DateTimeField(auto_now_add=True)
     last_edited = models.DateTimeField(auto_now=True)
 
@@ -40,14 +42,22 @@ class Ingredient(models.Model):
 
     def __str__(self):
         val = ""
-        if self.numerator % self.denom == 0:
-            val = str(self.numerator // self.denom)
+        if self.numerator == -1:
+            val = ""
+        elif self.numerator % self.denom == 0:
+            val = str(self.numerator // self.denom) + " "
         else:
-            val = "{}/{}".format(self.numerator, self.denom)
-        return "{} {} of {}".format(val, self.unit, self.name)
+            val = "{}/{}".format(self.numerator, self.denom) + " "
+        if self.unit != "":
+            adj = " of "
+        else:
+            adj = " "
+        return "{}{}{}{}".format(val, self.unit, adj,  self.name)
 
 class Step(models.Model):
     number = models.IntegerField()
     text = models.TextField()
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return "{}. {}".format(self.number, self.text)

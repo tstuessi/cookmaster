@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Apartment Recipe Tracker</title>
+    </head>
+    <body>
+        <ul>
+            {% for recipe in recipe_list %}
+            <li>{{ recipe.name }}</li>
+            {% endfor %}
+        </ul>
+        <a href={% url 'new recipe' %}>New Recipe</a>
+    </body>
+</html>
