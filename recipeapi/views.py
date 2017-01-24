@@ -26,7 +26,7 @@ def recipe(request, recipe_id):
     rec_obj = get_object_or_404(Recipe, pk=recipe_id)
 
     context["recipe"] = rec_obj
-    context["ingredients"] = [x for x in Ingredient.objects.filter(recipe=rec_obj)]
+    context["ingredients"] = Ingredient.objects.filter(recipe=rec_obj)
     context["steps"] = Step.objects.filter(recipe=rec_obj).order_by('number')
 
     return render(request, "recipeapi/recipe.html", context)

@@ -35,24 +35,16 @@ class Recipe(models.Model):
 # the ingredient has a many to one relationship to Recipe
 class Ingredient(models.Model):
     name = models.CharField(max_length=200)
-    numerator = models.IntegerField()
-    denom = models.IntegerField()
+    amount = models.CharField(max_length=200)
     unit = models.CharField(max_length=200)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
 
     def __str__(self):
-        val = ""
-        if self.numerator == -1:
-            val = ""
-        elif self.numerator % self.denom == 0:
-            val = str(self.numerator // self.denom) + " "
-        else:
-            val = "{}/{}".format(self.numerator, self.denom) + " "
         if self.unit != "":
             adj = " of "
         else:
             adj = " "
-        return "{}{}{}{}".format(val, self.unit, adj,  self.name)
+        return ("{} {}{}{}".format(self.amount, self.unit, adj,  self.name)).strip()
 
 class Step(models.Model):
     number = models.IntegerField()

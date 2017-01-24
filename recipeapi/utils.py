@@ -8,20 +8,12 @@ def process_ingredient(i, recipe):
     temp = ip.parse(i, expanded=True)
 
     # parse the quantity
-    if(temp["quantity"] == ""):
-        temp["quantity"] = "-1"
-    split_q = temp["quantity"].split('/')
-    numerator = split_q[0]
-    print(numerator, flush=True)
-    if len(split_q) > 1:
-        denominator = split_q[1]
-    else:
-        denominator = 1
+    amt = temp["quantity"]
 
     unit = temp["unit"]
     name = temp["name"]
 
-    return Ingredient(name=name, numerator=numerator, denom=denominator, unit=unit, recipe=recipe)
+    return Ingredient(name=name, amount=amt, unit=unit, recipe=recipe)
 
 
 def process_step(step, recipe, number):
